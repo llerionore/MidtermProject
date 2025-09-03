@@ -7,7 +7,7 @@
 
 <br>
 
-# for projects only, not tutorials
+**Question 0 is for projects only, not tutorials**
 **0. What is the link to your project on itch.io?**   
 
 > &nbsp;
