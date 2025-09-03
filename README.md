@@ -96,7 +96,7 @@ In MSU Media+Information classes, I recommend using **GitHub Desktop** ([https:/
 	4. Click **Create personal access token**.
 6. You'll get a popup telling you the token ID. **_You ONLY get to see this token ID once. Copy and paste it somewhere or WRITE IT DOWN!!_**
 7. **To clone a project into GitHub Desktop:**
-	1. Go to the main GitLab repository page (e.g., gitlab.msu.edu/mi231-f22/[your name]/[project name]) and click **'Clone'**.
+	1. Go to the main GitLab repository page https://gitlab.msu.edu/guenth72/mi231-starter-2025-fall and click **'Clone'**.
 	2. Click the clipboard copy icon next to **'Clone with HTTPS'** to copy the link.
 	3. Return to **GitHub Desktop**. From the **File** menu, choose **'Clone Repository** or click the **'Clone Repository'** button.
 	4. Click the **URL** tab.
