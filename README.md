@@ -7,6 +7,7 @@
 
 <br>
 
+# for projects only, not tutorials
 **0. What is the link to your project on itch.io?**   
 
 > &nbsp;
@@ -23,7 +24,7 @@
  
 
 
-**2. What creative additions did you make? How can we find them?**   
+**2. What creative additions/enhancements did you make? How can we find them?**   
 
 > &nbsp;
 ><i>(If you don't tell us how to experience them, we could easily miss them.)</i>   
@@ -78,66 +79,6 @@
 > &nbsp;
  
 
-
-
-
----
-
-# Required ReadMe Info for ALL MI 231 Projects
-* **Project**   - 
-* **Your Name** - 
-* **Date**      - 
-
-<br>
-
-1. **What are the controls to your game? How do we play?**
-
-
-
-<br>
-
-2. **What creative additions did you make? How can we find them?**
-
-
-
-<br>
-
-3. **Any assets used that you didn't create yourself?** <br> (art, music, etc. Just tell us where you got it, link it here)
-
-
-
-<br>
-
-4. **Did you receive help from anyone outside this class?** <br> (list their names and what they helped with)
-
-
-
-<br>
-
-5. **Did you get help from any AI Code Assistants?** <br> (Tell us which .cs file to look in for the citation and describe what you learned)
-
-
-
-<br>
-
-6. **Did you get help from any online websites, videos, or tutorials?** <br> (link them here)
-
-
-
-<br>
-
-7. **What trouble did you have with this project?**
-
-
-
-<br>
-
-8. **Is there anything else we should know?**
-
-
-
-
-<br><br><br><br><br>
 
 ---
 
