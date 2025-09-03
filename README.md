@@ -92,7 +92,7 @@ In MSU Media+Information classes, I recommend using **GitHub Desktop** ([https:/
 5. On the lefthand sidebar, click **'Access Tokens'**
 	1. Type in a **Token name** (it can be anything).
 	2. Leave the **Expiration date** blank
-	3. Under **Select scopes** select only **'api'**.
+	3. Under **Select scopes** select  **'api', 'read_repository', 'write_repository'**.
 	4. Click **Create personal access token**.
 6. You'll get a popup telling you the token ID. **_You ONLY get to see this token ID once. Copy and paste it somewhere or WRITE IT DOWN!!_**
 7. **To clone a project into GitHub Desktop:**
