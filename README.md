@@ -1,21 +1,26 @@
-# **Replace this Project Name** - ReadMe File
+#### MCS 1642 README file
+# **Replace this Project Name**
 
 #### Author: *Replace this with your name*
 
 ##### Modified: *2024-09-06*
 
-
 <br>
 
-**Question 0 is for projects only, not tutorials**
-**0. What is the link to your project on itch.io?**   
+#### Questions for tutorial assignments: (remove this section for projects)
+**Which tutorial is this? **
 
+**1. Did you make any additions beyond the tutorial requirements? If so, what?**
 > &nbsp;
-><i>(Just paste the link here.)</i>   
+><i>(let me know what to look for, any additional keys to use, etc.)</i>   
 > &nbsp;
- 
 
+**2. Did anything give you particular trouble?
+> &nbsp;
+><i>(If something in your assignment doesn't work or you think part of the tutorial can be improved, explain here)</i>   
+> &nbsp;
 
+#### Questions for projects: (remove this section for tutorial assignments)
 **1. What are the controls to your game? How do we play?**   
 
 > &nbsp;
@@ -77,15 +82,6 @@
 > &nbsp;
 >*No answer given.*
 > &nbsp;
- 
-
-
----
-
-# Connecting GitHub Desktop to GitLab.MSU.edu Projects
-See my **Student guide to using GitLab**: https://docs.google.com/document/d/1Eux7Tz1kHv5on4hk0M181RwndnWM9xckzo-uBfzwkhg/edit?usp=sharing
-
-<br><br><br><br><br>
 
 ---
 
