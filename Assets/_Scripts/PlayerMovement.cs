@@ -53,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
             audioSource.Play();
         }
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.1f);
         animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.2f);
         isAttacking=false;
         Debug.Log("Attack ended!");
 
