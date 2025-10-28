@@ -15,8 +15,8 @@ public class RoomTransfer : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            cam.MoveCamera(cameraChange);          // move camera one room
-            collision.transform.position += playerChange;  // move player into new room
+            cam.MoveCamera(cameraChange);
+            collision.transform.position += playerChange;
         }
     }
 }

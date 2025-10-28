@@ -3,13 +3,14 @@ using UnityEngine;
 using System.Collections.Generic;
 public abstract class Enemy : MonoBehaviour
 {
-    [Header("General Stats")]
+    
     public int health = 2;
     public int damage = 1;
     public float speed = 1.5f;
     public float chaseDistance = 6f;
 
-    [Header("Knockback")]
+    public int scoreValue = 100;
+
     public float knockDuration = 0.1f;
     public float tileSize = 1f;
     public LayerMask obstacleMask;
@@ -34,7 +35,7 @@ public abstract class Enemy : MonoBehaviour
         health -= amount;
         if (health <= 0)
         {
-            StartCoroutine(Die());
+            StartCoroutine(Death());
         }
         else
         {
@@ -60,11 +61,17 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual IEnumerator Die()
+    protected virtual IEnumerator Death()
     {
 
         yield return new WaitForSeconds(0.1f);
         DeathEffect();
+
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddScore(100);
+        }
+
         Destroy(gameObject);
     }
 
@@ -73,7 +80,7 @@ public abstract class Enemy : MonoBehaviour
         if (isKnocked) yield break;
         isKnocked = true;
 
-        Vector2 dir = GetCardinalDirection((Vector2)transform.position - sourcePos);
+        Vector2 dir = CardinalDirection((Vector2)transform.position - sourcePos);
         Vector2 targetPos = (Vector2)transform.position + dir * tileSize;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, tileSize, obstacleMask);
@@ -96,7 +103,7 @@ public abstract class Enemy : MonoBehaviour
         isKnocked = false;
     }
 
-    protected Vector2 GetCardinalDirection(Vector2 input)
+    protected Vector2 CardinalDirection(Vector2 input)
     {
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
             return new Vector2(Mathf.Sign(input.x), 0);

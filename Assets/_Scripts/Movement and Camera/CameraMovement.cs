@@ -15,14 +15,14 @@ public class CameraMovement : MonoBehaviour
         currentPosition += moveAmount;
         StartCoroutine(SmoothMove(new Vector3(currentPosition.x, currentPosition.y, transform.position.z)));
     }
-    private IEnumerator SmoothMove(Vector3 targetPos)
+    private IEnumerator SmoothMove(Vector3 targetPosition)
     {
-        while ((transform.position - targetPos).sqrMagnitude > 0.01f)
+        while ((transform.position - targetPosition).sqrMagnitude > 0.01f)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, 10f * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 10f * Time.deltaTime);
             yield return null;
         }
-        transform.position = targetPos;
+        transform.position = targetPosition;
     }
 
 }

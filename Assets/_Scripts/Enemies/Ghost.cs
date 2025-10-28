@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Slime : Enemy
+public class Ghost : Enemy
 {
     private Vector2 moveDirection;
     private Vector2 lastCardinalDir;
@@ -17,14 +17,14 @@ public class Slime : Enemy
         {
             // player direction
             Vector2 diff = (player.position - transform.position);
-            moveDirection = GetCardinalDirection(diff);
+            moveDirection = CardinalDirection(diff);
         }
         else
         {
             moveDirection = Vector2.zero;
         }
 
-        AnimateMovement();
+        Movement();
     }
 
     void FixedUpdate()
@@ -42,7 +42,7 @@ public class Slime : Enemy
         }
     }
 
-    private void AnimateMovement()
+    private void Movement()
     {
         if (animator == null) return;
 

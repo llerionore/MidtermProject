@@ -16,12 +16,19 @@ public class PlayerKnockback : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
+        PlayerHealth health = GetComponent<PlayerHealth>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isKnocked && collision.collider.CompareTag("Enemy"))
         {
+            PlayerHealth health = GetComponent<PlayerHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(1);
+            }
+
             Vector2 direction = GetCardinalDirection(rb.position - (Vector2)collision.transform.position);
             Vector2 targetPos = rb.position + direction * tileSize;
 

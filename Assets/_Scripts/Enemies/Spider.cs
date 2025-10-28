@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Ghost : Enemy
+public class Spider : Enemy
 {
     private Vector2 moveDirection;
     private Vector2 lastCardinalDir;
@@ -17,7 +17,7 @@ public class Ghost : Enemy
         {
             // player direction
             Vector2 diff = (player.position - transform.position);
-            moveDirection = GetCardinalDirection(diff);
+            moveDirection = CardinalDirection(diff);
         }
         else
         {
