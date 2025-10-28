@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 477478506}
   - component: {fileID: 477478508}
   - component: {fileID: 477478507}
+  - component: {fileID: 477478509}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -700,6 +701,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &477478509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477478502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a7c362a58c76a4c94e75ef99bbd913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileSize: 1
+  knockDuration: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &491083782
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,7 +911,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591563346}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
