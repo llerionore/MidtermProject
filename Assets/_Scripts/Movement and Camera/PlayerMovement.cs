@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAttacking && Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(AttackCo());
+            StartCoroutine(AttackCoRo());
         }
     }
 
@@ -42,22 +42,20 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private IEnumerator AttackCo() {
-        Debug.Log("Attack started!");
+    private IEnumerator AttackCoRo() {
         isAttacking = true;
         animator.SetBool("attacking", true);
         rb.velocity = Vector3.zero;
-
-        if (audioSource != null)
-        {
+            
+        if (audioSource != null) {
             audioSource.Play();
+            Debug.Log("Sound Played!");
         }
 
         yield return new WaitForSeconds(.1f);
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.2f);
         isAttacking=false;
-        Debug.Log("Attack ended!");
 
     }
 

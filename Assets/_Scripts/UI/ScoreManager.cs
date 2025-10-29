@@ -36,7 +36,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = currentScore.ToString("D6");
+            scoreText.text = currentScore.ToString("D5");
         }
     }
 }
