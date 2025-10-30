@@ -13,6 +13,8 @@ public class RoomTransfer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player")) return;
+
         if (collision.CompareTag("Player"))
         {
             cam.MoveCamera(cameraChange);
