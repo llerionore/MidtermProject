@@ -16,7 +16,7 @@ public class Slime : Enemy
         if (distance < chaseDistance)
         {
             // player direction
-            Vector2 diff = (player.position - transform.position);
+            Vector2 diff = CardinalDirection(player.position - transform.position);
             moveDirection = CardinalDirection(diff);
         }
         else

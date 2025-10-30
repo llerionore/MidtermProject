@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 public abstract class Enemy : MonoBehaviour
 {
-    
+
     public int health = 2;
     public int damage = 1;
     public float speed = 1.5f;
@@ -54,8 +54,10 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    private void DeathEffect() {
-        if (deathEffect != null) {
+    private void DeathEffect()
+    {
+        if (deathEffect != null)
+        {
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(effect, 1f);
         }
@@ -105,9 +107,17 @@ public abstract class Enemy : MonoBehaviour
 
     protected Vector2 CardinalDirection(Vector2 input)
     {
+        // Normalize first
+        input.Normalize();
+
+        // Strict 4-direction movement logic (no diagonal)
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
             return new Vector2(Mathf.Sign(input.x), 0);
+        }
         else
+        {
             return new Vector2(0, Mathf.Sign(input.y));
+        }
     }
 }

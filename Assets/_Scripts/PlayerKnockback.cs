@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerKnockback : MonoBehaviour
 {
-    public float tileSize = 1f;            // длина "клетки" (1 юнит = 1 клетка)
-    public float knockDuration = 0.1f;     // длительность отлета
-    public LayerMask obstacleMask;         // слой преп€тствий
+    public float tileSize = 1f;            
+    public float knockDuration = 0.1f;     
+    public LayerMask obstacleMask;         
 
     private Rigidbody2D rb;
     private PlayerMovement movement;
@@ -16,7 +15,6 @@ public class PlayerKnockback : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         movement = GetComponent<PlayerMovement>();
-        PlayerHealth health = GetComponent<PlayerHealth>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -25,19 +23,15 @@ public class PlayerKnockback : MonoBehaviour
         {
             PlayerHealth health = GetComponent<PlayerHealth>();
             if (health != null)
-            {
                 health.TakeDamage(1);
-            }
 
             Vector2 direction = GetCardinalDirection(rb.position - (Vector2)collision.transform.position);
             Vector2 targetPos = rb.position + direction * tileSize;
 
-            // ѕроверка на стену
+            // wall check
             RaycastHit2D hit = Physics2D.Raycast(rb.position, direction, tileSize, obstacleMask);
             if (hit.collider != null)
-            {
-                targetPos = rb.position; // если р€дом стена, не двигаемс€
-            }
+                targetPos = rb.position;
 
             StartCoroutine(KnockbackCoroutine(targetPos));
         }
@@ -45,20 +39,22 @@ public class PlayerKnockback : MonoBehaviour
 
     private Vector2 GetCardinalDirection(Vector2 input)
     {
-        // ¬ыбор строго 4 направлений (без диагоналей)
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
             return new Vector2(Mathf.Sign(input.x), 0);
         else
             return new Vector2(0, Mathf.Sign(input.y));
     }
 
-    private IEnumerator KnockbackCoroutine(Vector2 targetPos)
+    public IEnumerator KnockbackCoroutine(Vector2 targetPos)
     {
         isKnocked = true;
-        movement.enabled = false; // выключаем управление игроком
+        movement.enabled = false;
 
         Vector2 startPos = rb.position;
         float elapsed = 0f;
+
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
 
         while (elapsed < knockDuration)
         {
@@ -69,9 +65,12 @@ public class PlayerKnockback : MonoBehaviour
 
         rb.MovePosition(targetPos);
 
+        // stop
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = false;
+
         yield return new WaitForSeconds(0.1f);
         movement.enabled = true;
         isKnocked = false;
     }
 }
-

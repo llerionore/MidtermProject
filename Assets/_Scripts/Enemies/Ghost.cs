@@ -16,8 +16,8 @@ public class Ghost : Enemy
         if (distance < chaseDistance)
         {
             // player direction
-            Vector2 diff = (player.position - transform.position);
-            moveDirection = CardinalDirection(diff);
+            Vector2 diff = (player.position - transform.position).normalized;
+            moveDirection = diff;
         }
         else
         {
