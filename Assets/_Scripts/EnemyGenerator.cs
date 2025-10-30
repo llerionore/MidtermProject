@@ -4,38 +4,71 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
+
     public GameObject[] enemyPrefabs;
+
     public int minEnemies = 2;
     public int maxEnemies = 5;
-    public Vector2 spawnMin = new Vector2(-6, -4);
-    public Vector2 spawnMax = new Vector2(6, 4);
+
+    public Vector2 spawnMin = new Vector2(-4, -2);
+    public Vector2 spawnMax = new Vector2(4, 2);
+
+    public LayerMask obstacleMask;
+    public LayerMask enemyMask;
+    public float checkRadius = 0.05f;
+    public int maxAttemptsPerEnemy = 100;  
 
     [HideInInspector] public string roomID;
-    private List<GameObject> enemies = new List<GameObject>();
+
+    private readonly List<GameObject> enemies = new List<GameObject>();
     private bool isCleared;
 
-    void Start()
+    public void Initialize(string id, Transform roomParent)
     {
+        roomID = id;
+
         if (RoomManager.Instance.IsRoomCleared(roomID))
         {
             isCleared = true;
             return;
         }
 
-        int count = Random.Range(minEnemies, maxEnemies + 1);
-        for (int i = 0; i < count; i++)
-        {
-            GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-            Vector2 pos = new Vector2(
-                transform.position.x + Random.Range(spawnMin.x, spawnMax.x),
-                transform.position.y + Random.Range(spawnMin.y, spawnMax.y)
-            );
+        int targetCount = Random.Range(minEnemies, maxEnemies + 1);
 
-            GameObject e = Instantiate(prefab, pos, Quaternion.identity);
+        for (int i = 0; i < targetCount; i++)
+        {
+            Vector3? spawnPoint = FindFreePoint();
+            if (spawnPoint == null)
+            {
+                continue;
+            }
+
+            GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+            GameObject e = Instantiate(prefab, spawnPoint.Value, Quaternion.identity, roomParent);
             enemies.Add(e);
         }
 
-        StartCoroutine(CheckCleared());
+        if (enemies.Count > 0)
+            StartCoroutine(CheckCleared());
+    }
+
+    private Vector3? FindFreePoint()
+    {
+        for (int attempt = 0; attempt < maxAttemptsPerEnemy; attempt++)
+        {
+            float x = Random.Range(spawnMin.x, spawnMax.x);
+            float y = Random.Range(spawnMin.y, spawnMax.y);
+            Vector3 world = transform.position + new Vector3(x, y, 0);
+
+            bool hitsWall = Physics2D.OverlapCircle(world, checkRadius, obstacleMask);
+            if (hitsWall) continue;
+
+            bool hitsEnemy = Physics2D.OverlapCircle(world, checkRadius, enemyMask);
+            if (hitsEnemy) continue;
+
+            return world;
+        }
+        return null;
     }
 
     private IEnumerator CheckCleared()
@@ -47,8 +80,21 @@ public class EnemyGenerator : MonoBehaviour
             {
                 isCleared = true;
                 RoomManager.Instance.MarkRoomCleared(roomID);
+                yield break;
             }
             yield return new WaitForSeconds(1f);
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 a = transform.position + (Vector3)spawnMin;
+        Vector3 b = transform.position + new Vector3(spawnMax.x, spawnMin.y, 0);
+        Vector3 c = transform.position + (Vector3)spawnMax;
+        Vector3 d = transform.position + new Vector3(spawnMin.x, spawnMax.y, 0);
+        Gizmos.DrawLine(a, b); Gizmos.DrawLine(b, c); Gizmos.DrawLine(c, d); Gizmos.DrawLine(d, a);
+    }
+#endif
 }

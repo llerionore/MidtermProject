@@ -1,19 +1,29 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
 
-public class Spike : MonoBehaviour
+public class SpikeDamage : MonoBehaviour
 {
-    public int damage = 1;
+    public int damageAmount = 1;
+    public float damageCooldown = 1f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public AudioSource audioSource;
+    public AudioClip damageClip;
+
+    private float lastDamageTime = -999f;
+
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (other.CompareTag("Player") && Time.time >= lastDamageTime + damageCooldown)
         {
-            PlayerHealth playerHealth = collision.collider.GetComponent<PlayerHealth>();
+            PlayerHealth health = other.GetComponent<PlayerHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(damageAmount);
 
-            if (playerHealth != null)
-                playerHealth.TakeDamage(damage);
+                if (audioSource != null && damageClip != null)
+                    audioSource.PlayOneShot(damageClip);
+
+                lastDamageTime = Time.time;
+            }
         }
     }
 }

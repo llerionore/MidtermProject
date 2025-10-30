@@ -123,10 +123,8 @@ public abstract class Enemy : MonoBehaviour
 
     protected Vector2 CardinalDirection(Vector2 input)
     {
-        // Normalize first
         input.Normalize();
 
-        // Strict 4-direction movement logic (no diagonal)
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {
             return new Vector2(Mathf.Sign(input.x), 0);

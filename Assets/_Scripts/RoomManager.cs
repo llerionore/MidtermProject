@@ -12,10 +12,8 @@ public class RoomManager : MonoBehaviour
 
     public static RoomManager Instance;
 
-    [Header("Room Prefabs")]
     public List<RoomPrefab> roomPrefabs;
 
-    [Header("Settings")]
     public Vector2 roomSize = new Vector2(16, 11);
     public Transform player;
 
@@ -31,10 +29,6 @@ public class RoomManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
-    {
-        SpawnRoom(currentRoom);
-    }
 
     public void MoveToRoom(Vector2Int direction)
     {
@@ -56,8 +50,11 @@ public class RoomManager : MonoBehaviour
 
         EnemyGenerator gen = newRoom.GetComponentInChildren<EnemyGenerator>();
         if (gen != null)
-            gen.roomID = pos.ToString(); // coordinate = unique room id
+        {
+            gen.Initialize(pos.ToString(), newRoom.transform);
+        }
     }
+
 
     public bool IsRoomCleared(string id)
     {
