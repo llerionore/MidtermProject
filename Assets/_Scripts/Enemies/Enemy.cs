@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour
     public float chaseDistance = 6f;
 
     public int scoreValue = 100;
+    public float heartDropChance = 0.1f;
 
     public float knockDuration = 0.1f;
     public float tileSize = 1f;
@@ -18,6 +19,7 @@ public abstract class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     protected Animator animator;
     public GameObject deathEffect;
+    public GameObject heartPrefab;
     protected Transform player;
     protected bool isKnocked = false;
 
@@ -65,13 +67,17 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual IEnumerator Death()
     {
-
         yield return new WaitForSeconds(0.1f);
         DeathEffect();
 
         if (ScoreManager.Instance != null)
         {
             ScoreManager.Instance.AddScore(100);
+        }
+
+        if (heartPrefab != null && Random.value < heartDropChance)
+        {
+            Instantiate(heartPrefab, transform.position, Quaternion.identity);
         }
 
         Destroy(gameObject);

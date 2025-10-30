@@ -8,6 +8,7 @@ public class HeartManager : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
     public GameObject gameOverPanel;
+    public AudioSource audioSource;
 
     public void UpdateHearts(int currentHealth)
     {
@@ -24,6 +25,7 @@ public class HeartManager : MonoBehaviour
     {
         if (gameOverPanel != null)
         {
+            audioSource.Play();
             gameOverPanel.SetActive(true);
         }
     }
