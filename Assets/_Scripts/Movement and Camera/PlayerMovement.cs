@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
             
         if (audioSource != null) {
             audioSource.Play();
-            Debug.Log("Sound Played!");
         }
 
         yield return new WaitForSeconds(.1f);
