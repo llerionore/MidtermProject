@@ -11,7 +11,7 @@
 **1. What are the controls to your game? How do we play?**   
 
 > &nbsp;
->You are controlling the Player by using WASD or Arrow Keys as you prefer. You can slash Enemies with the Sword by pressing "Space" button in the direction you are standing. You can press "Esc" button to go to the pause menu.
+>You are controlling the Player by pressing WASD or Arrow Keys as you prefer. You can slash Enemies with the Sword by pressing "Space" button in the direction you are standing. You can press "Esc" button to go to the pause menu.
 >
 > ---
 > 
