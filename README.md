@@ -65,7 +65,7 @@
 **5. Did you get help from any AI Code Assistants?**   
 
 > &nbsp;
-><i>Yes, I got help from AI Code Assistants, especially with room generation and enemy AI, as I couldn't understand how to do them the way I want to.</i>   
+><i>Yes, I got help from AI Code Assistants, especially with room generation and enemy AI, as I couldn't understand how to do them the way I want to. I repent for this.</i>   
 > &nbsp;
  
 
@@ -94,7 +94,7 @@
 **8. Is there anything else we should know?**   
 
 > &nbsp;
-> <i>Creating a game is really an interesting experience. I enjoyed it a lot, especially the creative part, where I had to draw all of the assets, tiles, making some game decisions and so on. Unfortunately I couldn't implement more ideas that I had, but there is a Final Project for that :) </i>
+> <i>Creating a game is really an interesting experience. I enjoyed it a lot, especially the creative part, where I had to draw all of the assets, tiles, making some game decisions and so on. There was some things that were really painful and tedious problems to solve, but now I have some experience on how to deal with them. Unfortunately I couldn't implement more ideas that I had, but there is a Final Project for that :) </i>
 > &nbsp;
 
 ---
