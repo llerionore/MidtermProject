@@ -1,5 +1,5 @@
 #### MCS 1643 README file
-# **Midterm Project : "Arcadish" Zelda**
+# **Midterm Project : "Arcade-y" Zelda**
 
 #### Author: *Adam Satyshev*
 
