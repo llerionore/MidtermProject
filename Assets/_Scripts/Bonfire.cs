@@ -1,6 +1,8 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
-public class FireHazard : MonoBehaviour
+public class Bonfire : MonoBehaviour
 {
     public int damage = 1;
 
@@ -16,19 +18,15 @@ public class FireHazard : MonoBehaviour
 
             if (playerKnockback != null)
             {
-                // Calculate direction from fire to player (same logic as enemy contact)
                 Vector2 direction = playerKnockback.transform.position - transform.position;
                 direction.Normalize();
 
-                // Simulate a 1-tile knockback (reuses PlayerKnockback logic)
                 Vector2 targetPos = (Vector2)playerKnockback.transform.position + direction * playerKnockback.tileSize;
 
-                // Check for walls like in PlayerKnockback
                 RaycastHit2D hit = Physics2D.Raycast(playerKnockback.transform.position, direction, playerKnockback.tileSize, playerKnockback.obstacleMask);
                 if (hit.collider != null)
-                    targetPos = playerKnockback.transform.position; // blocked by wall
+                    targetPos = playerKnockback.transform.position;
 
-                // Run the same coroutine as when enemy hits player
                 playerKnockback.StartCoroutine("KnockbackCoroutine", targetPos);
             }
         }

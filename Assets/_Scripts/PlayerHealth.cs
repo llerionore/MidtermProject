@@ -5,31 +5,38 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 4;
-    public int currentHealth;
+    public int health;
+
     public HeartManager heartManager;
+    public AudioSource audioSource;
+    public AudioClip hurtClip;
 
     private bool isDead = false;
 
     void Start()
     {
-        currentHealth = maxHealth;
-        heartManager.UpdateHearts(currentHealth);
+        health = maxHealth;
+        heartManager.UpdateHearts(health);
     }
 
     public void TakeDamage(int amount)
     {
         if (isDead) return;
 
-        currentHealth -= amount;
-        if (currentHealth < 0) currentHealth = 0;
+        health -= amount;
+        if (health < 0) health = 0;
 
-        heartManager.UpdateHearts(currentHealth);
+        heartManager.UpdateHearts(health);
 
-        if (currentHealth <= 0)
+        if (hurtClip != null && audioSource != null)
+            audioSource.PlayOneShot(hurtClip);
+
+        if (health <= 0)
         {
             Death();
         }
     }
+
 
     void Death()
     {

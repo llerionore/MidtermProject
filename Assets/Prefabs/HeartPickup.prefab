@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8128444129232342086}
   - component: {fileID: 6939663826971031023}
   - component: {fileID: 1419785819003231074}
+  - component: {fileID: 5418767005131686908}
   m_Layer: 0
   m_Name: HeartPickup
   m_TagString: Untagged
@@ -269,3 +270,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5418767005131686908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430223194227774359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25dc8be17d7db949839bdc53d08ee7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 1

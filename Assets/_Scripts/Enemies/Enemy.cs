@@ -20,6 +20,9 @@ public abstract class Enemy : MonoBehaviour
     protected Animator animator;
     public GameObject deathEffect;
     public GameObject heartPrefab;
+    public AudioSource audioSource;
+    public AudioClip hurtClip;
+    public AudioClip deathClip;
     protected Transform player;
     protected bool isKnocked = false;
 
@@ -35,6 +38,10 @@ public abstract class Enemy : MonoBehaviour
         if (isKnocked) return;
 
         health -= amount;
+
+        if (hurtClip != null && audioSource != null)
+            audioSource.PlayOneShot(hurtClip);
+
         if (health <= 0)
         {
             StartCoroutine(Death());
@@ -67,6 +74,9 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual IEnumerator Death()
     {
+        if (deathClip != null && audioSource != null)
+            audioSource.PlayOneShot(deathClip);
+
         yield return new WaitForSeconds(0.1f);
         DeathEffect();
 
