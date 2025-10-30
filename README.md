@@ -1,30 +1,39 @@
 #### MCS 1643 README file
-# **Replace this Project Name**
+# **Midterm Project : "Arcadish" Zelda**
 
-#### Author: *Replace this with your name*
+#### Author: *Adam Satyshev*
 
-##### Modified: *2024-09-06*
+##### Modified: *2025-10-30*
 
 <br>
-
-#### Questions for tutorial assignments: (remove this section for projects)
-**Which tutorial is this? **
-
-**1. Did you make any additions beyond the tutorial requirements? If so, what?**
-> &nbsp;
-><i>(let me know what to look for, any additional keys to use, etc.)</i>   
-> &nbsp;
-
-**2. Did anything give you particular trouble?
-> &nbsp;
-><i>(If something in your assignment doesn't work or you think part of the tutorial can be improved, explain here)</i>   
-> &nbsp;
 
 #### Questions for projects: (remove this section for tutorial assignments)
 **1. What are the controls to your game? How do we play?**   
 
 > &nbsp;
-><i>(art, music, etc. Just tell us where you got it, link it here)</i>   
+>You are controlling the Player by using WASD or Arrow Keys as you prefer. You can slash Enemies with the Sword by pressing "Space" button in the direction you are standing. You can press "Esc" button to go to the pause menu.
+>
+> ---
+> 
+><i>The "Zelda" font that I used for the game menu - https://fontstruct.com/fontstructions/show/818869/the_legend_of_zelda_nes
+>
+> Original The Legend of Zelda sprites that my assets were based on :
+>
+> Link - https://www.spriters-resource.com/nes/legendofzelda/asset/8366/
+>
+> Dungeon Enemies - https://www.spriters-resource.com/nes/legendofzelda/asset/31806/
+>
+> Other tools :
+> 
+> Sound Effects - https://sfxr.me
+>
+> Tiled - https://www.mapeditor.org
+>
+> Unity - https://unity.com
+>
+> Aseprite - https://store.steampowered.com/app/431730/Aseprite/
+>
+> </i>   
 > &nbsp;
  
 
@@ -32,7 +41,7 @@
 **2. What creative additions/enhancements did you make? How can we find them?**   
 
 > &nbsp;
-><i>(If you don't tell us how to experience them, we could easily miss them.)</i>   
+><i>I've drawn everything all by myself, well some of the assets were based on the original, but still. I've put some sound effects using jsfxr to create them.</i>   
 > &nbsp;
  
 
@@ -40,7 +49,7 @@
 **3. Any assets used that you didn't create yourself?**   
 
 > &nbsp;
-><i>(art, music, etc. Just tell us where you got it, link it here)</i>   
+><i>I created my own assets and models based on the original Zelda game. I used Aseprite to draw sprites of the player, enemies, rooms and everything. For room creation I used program called Tiled, which is a map creator for 2D games.</i>   
 > &nbsp;
  
 
@@ -48,7 +57,7 @@
 **4. Did you receive help from anyone outside this class or from anyone in this class that is not in a group with you?**   
 
 > &nbsp;
-><i>(list their names and what they helped with)</i>   
+><i>I watched some guides and tutorials on how to make certain things, but rather than that, I haven't recieved any help from someone.</i>   
 > &nbsp;
  
 
@@ -56,7 +65,7 @@
 **5. Did you get help from any AI Code Assistants?**   
 
 > &nbsp;
-><i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file to look in for the citation and describe what you learned)</i>   
+><i>Yes, I got help from AI Code Assistants, especially with room generation and enemy AI, as I couldn't understand how to do them the way I want to.</i>   
 > &nbsp;
  
 
@@ -64,7 +73,12 @@
 **6. Did you get help from any online websites, videos, or tutorials?**   
 
 > &nbsp;
-><i>(link them here)</i>   
+><i>The main tutorial that I followed - https://www.youtube.com/watch?v=F5sMq8PrWuM&list=PL4vbr3u7UKWp0iM1WIfRjCDTI03u43Zfu&index=1
+>
+> The transition between the rooms - https://www.youtube.com/watch?v=6PzupNzq7ck
+>
+> Tiled animation guide - https://www.youtube.com/watch?v=ZNEH-rFQ7Ys (It's a tutorial for LÖVE, but there is a part explaining the animation in Tiled).
+> </i>   
 > &nbsp;
  
 
@@ -72,7 +86,7 @@
 **7. What trouble did you have with this project?**   
 
 > &nbsp;
-><i>(Even if you didn't complete the project, you can still get partial credit if you tell us about why it's incomplete.)</i>   
+><i>There was a lot of problems that I had to stumble upon. Firstly, I had problem with room generation, especially the code, which was not working properly. So, I had to watch a lot of guides and videos explaining how can I implement this mechaninc into the game. Secondly, I had problem with code structure. I've written a lot of different code, which some of them sometime interfere with each other, causing problems. Later on I used inheritance derived from Enemy.cs to enemy scripts, such as Spider.cs, Slime.cs and Ghost.cs. Thirdly, I had some problems with animations and Unity Animator. It was not a big problem, as I fixed it really quickly, but still, it caused me some trouble. Basically I had problems with tying up the movement and animation, but after watching some guides, it is relatively easy.</i>   
 > &nbsp;
  
 
@@ -80,8 +94,13 @@
 **8. Is there anything else we should know?**   
 
 > &nbsp;
->*No answer given.*
+> <i>Creating a game is really an interesting experience. I enjoyed it a lot, especially the creative part, where I had to draw all of the assets, tiles, making some game decisions and so on. Unfortunately I couldn't implement more ideas that I had, but there is a Final Project for that :) </i>
 > &nbsp;
+
+---
+
+The FontStruction “The Legend of Zelda NES” (https://fontstruct.com/fontstructions/show/818869) by “Gwellin” is licensed under a Creative Commons Attribution Non-commercial Share Alike license (http://creativecommons.org/licenses/by-nc-sa/3.0/).
+[ancestry]
 
 ---
 
