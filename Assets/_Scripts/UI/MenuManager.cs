@@ -1,66 +1,52 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [Header("Panels")]
     public GameObject mainPanel;
     public GameObject settingsPanel;
     public GameObject helpPanel;
 
-    [Header("Audio")]
-    public Slider volumeSlider;
-    public AudioSource musicSource;
+    public AudioSource audioSource;
+    public AudioClip clickSound;
 
-    void Start()
+    private void PlayClick()
     {
-        // Загрузка сохраненной громкости
-        if (PlayerPrefs.HasKey("Volume"))
-        {
-            float volume = PlayerPrefs.GetFloat("Volume");
-            AudioListener.volume = volume;
-            volumeSlider.value = volume;
-        }
+        if (audioSource != null && clickSound != null)
+            audioSource.PlayOneShot(clickSound);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
-    }
-
-    public void OpenSettings()
-    {
-        mainPanel.SetActive(false);
-        settingsPanel.SetActive(true);
-    }
-
-    public void CloseSettings()
-    {
-        mainPanel.SetActive(true);
-        settingsPanel.SetActive(false);
-    }
-
-    public void OpenHelp()
-    {
-        mainPanel.SetActive(false);
-        helpPanel.SetActive(true);
-    }
-
-    public void CloseHelp()
-    {
-        mainPanel.SetActive(true);
-        helpPanel.SetActive(false);
+        PlayClick();
+        SceneManager.LoadScene("Scene1");
     }
 
     public void QuitGame()
     {
+        PlayClick();
         Application.Quit();
     }
 
-    public void ChangeVolume(float volume)
+    public void OpenSettings()
     {
-        AudioListener.volume = volume;
-        PlayerPrefs.SetFloat("Volume", volume);
+        PlayClick();
+        mainPanel.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
+
+    public void OpenHelp()
+    {
+        PlayClick();
+        mainPanel.SetActive(false);
+        helpPanel.SetActive(true);
+    }
+
+    public void ClosePanels()
+    {
+        PlayClick();
+        mainPanel.SetActive(true);
+        settingsPanel.SetActive(false);
+        helpPanel.SetActive(false);
     }
 }
